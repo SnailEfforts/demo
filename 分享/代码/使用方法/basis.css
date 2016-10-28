@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+}
+#canvas{
+    display: block;
+    margin: 40px auto;
+    border: 1px solid #f00;
+}
+#canvas2{
+    display: block;
+    margin: 40px auto;
+    border: 1px solid #f00;
+}
+.format{
+    width: 400px;
+    margin:  30px auto;
+}

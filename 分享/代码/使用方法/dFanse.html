@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="basis.css">
+    <title>14</title>
+</head>
+<body>
+<div class="format">
+    <p>要使用的图片：</p>
+
+    <img src="image.jpg" alt="tulip" id="tulip" style="margin-left:0px;" />
+
+    <p>Canvas:</p>
+</div>
+<canvas id = "canvas" width="400" height="200"></canvas>
+
+<script>
+    document.getElementById("tulip").onload=function(){
+        var c=document.getElementById("canvas");
+        var ctx=c.getContext("2d");
+        var img=document.getElementById("tulip");
+        ctx.drawImage(img,0,0);
+        var imgData = ctx.getImageData(0,0,c.width,c.height);
+
+        //颜色反转
+        for(var i = 0 ; i<imgData.data.length; i += 4){
+            imgData.data[i] = 255 - imgData.data[i];
+            imgData.data[i+1] = 255 - imgData.data[i+1];
+            imgData.data[i+2] = 255 - imgData.data[i+2];
+            imgData.data[i+3] = 255;
+        }
+        ctx.putImageData(imgData , 0 , 0);
+    };
+</script>
+
+</body>
+</html>

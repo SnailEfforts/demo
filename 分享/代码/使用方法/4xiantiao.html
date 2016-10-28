@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="basis.css">
+    <title>4</title>
+</head>
+<body>
+<div>
+    <canvas id = "canvas" width="400" height="200"></canvas>
+</div>
+
+</body>
+<script type="text/javascript">
+    var can = document.getElementById("canvas");
+    var ctx = can.getContext('2d');
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.lineCap="round";
+//    ctx.lineWidth=5;
+    ctx.moveTo(20,20);
+    ctx.lineTo(20,100);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.lineJoin="miter";  // bevel round miter
+    ctx.lineWidth=10;
+//    ctx.miterLimit=4;
+    ctx.moveTo(60,20);
+    ctx.lineTo(100,30);
+    ctx.lineTo(60,39);
+    ctx.stroke();
+    ctx.restore();
+</script>
+</html>

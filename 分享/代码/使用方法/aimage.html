@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="basis.css">
+    <title>10</title>
+</head>
+<body>
+<div class="format">
+    <p>要使用的图片：</p>
+
+    <img src="image.jpg" alt="tulip" id="tulip"  />
+
+    <p>Canvas:</p>
+</div>
+<canvas id = "canvas" width="400" height="200"></canvas>
+
+<script>
+    document.getElementById("tulip").onload=function(){
+        var c=document.getElementById("canvas");
+        var ctx=c.getContext("2d");
+        var img=document.getElementById("tulip");
+        ctx.drawImage(img,0,0,90,80,20,20,90,80);
+    };
+</script>
+
+</body>
+</html>

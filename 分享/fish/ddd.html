@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!-- 错误、成功提示 STA-->
+<div class="alert alert-dismissible navbar-fixed-top top-alert alert-success" role="alert" style="min-height: 50px; height: 50px; display: none; ">
+    <div class="container">
+        <button type="button" class="close"><span aria-hidden="true">×</span></button>
+        <div id="navbar-msg" style="text-align: center"></div>
+    </div>
+</div>
+<button onclick="Persen.alertSuccess(msg,fun,fix);">tanchu</button>
+<!-- 错误、成功提示 END-->
+
+
+<script>
+    $(document).ready(function(){
+        Persen.alertSuccess(msg,fun,fix);
+        Persen.alertFail('111');
+    });
+
+    var Persen = {
+        timeUptopBar:function(fun)
+        {
+            var obj = $('.top-alert');
+            obj.fadeOut(1500,function () {
+                if(fun && typeof(fun) != 'undefined')
+                {
+                    eval(fun);
+                }
+            });
+            return false;
+        },
+        alertNavtopBar:function (msg, alerttype, fun)
+        {
+            if(typeof(fun) == 'undefined')
+            {
+                fun = '';
+            }
+            var obj = $('.top-alert');
+            var btn = $('.top-alert button');
+            obj.removeClass('alert-success alert-warning alert-danger');
+
+            obj.addClass('alert-'+alerttype);
+            $('#navbar-msg').html(msg);
+            obj.fadeIn(1000);
+            setTimeout(function(){
+                Persen.timeUptopBar(fun);
+            },3000);
+
+            btn.click(function(){
+                Persen.timeUptopBar(fun);
+            });
+        },
+
+        alertSuccess:function (msg, fun)
+        {
+            if(typeof(fun) == 'undefined')
+            {
+                fun = '';
+            }
+            Persen.alertNavtopBar(msg, 'success', fun);
+        },
+        alertFail:function (msg,fun)
+        {
+            Persen.alertNavtopBar(msg,'danger');
+        },
+        alertWarning:function (msg,fun)
+        {
+            Persen.alertNavtopBar(msg,'warning');
+        }
+    };
+</script>
+
+</body>
+</html>

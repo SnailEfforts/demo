@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="basis.css">
+    <title>7</title>
+</head>
+<body>
+<div>
+    <canvas id = "canvas" width="400" height="200"></canvas>
+</div>
+
+</body>
+<script type="text/javascript">
+    var can = document.getElementById("canvas");
+    var ctx = can.getContext('2d');
+
+
+//    ctx.rotate(90*Math.PI/180);
+    ctx.fillRect(50,30,100,50);
+
+    ctx.translate(50,20);
+//    ctx.strokeRect(5,5,25,15);
+    ctx.scale(1,2);
+    ctx.strokeRect(50,30,25,15);
+
+
+
+</script>
+</html>

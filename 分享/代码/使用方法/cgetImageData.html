@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="basis.css">
+    <title>13</title>
+</head>
+<body>
+<div>
+    <canvas id = "canvas" width="400" height="200"></canvas>
+    <div class="format">
+        <button onclick="copy()">复制</button>
+     </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var c=document.getElementById("canvas");
+    var ctx=c.getContext("2d");
+
+    ctx.fillStyle="green";
+    ctx.fillRect(10,10,50,50);
+
+    function copy()
+    {
+        var imgData=ctx.getImageData(10,10,50,50);
+        ctx.putImageData(imgData,10,70);
+    }
+
+</script>
+</html>

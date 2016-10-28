@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="basis.css">
+    <title>6</title>
+</head>
+<body>
+<div>
+    <canvas id = "canvas" width="400" height="200"></canvas>
+</div>
+
+</body>
+<script type="text/javascript">
+    var can = document.getElementById("canvas");
+    var ctx = can.getContext('2d');
+
+    ctx.rect(20,20,50,100);
+    ctx.stroke();
+//    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(100,20);
+    ctx.lineTo(100,100);
+    ctx.lineTo(170,100);
+//    ctx.closePath();
+    ctx.strokeStyle="green";
+    ctx.stroke();
+//    剪切
+//    ctx.clip();
+//    // 在 clip() 之后绘制绿色矩形
+//    ctx.fillStyle="green";
+//    ctx.fillRect(0,0,150,100);
+
+    //二次贝塞尔曲线
+    ctx.beginPath();
+    ctx.moveTo(200,110);
+    ctx.quadraticCurveTo(380,10,370,190);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(300,25,20,0,2*Math.PI);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(20,20);           // 创建开始点
+    ctx.lineTo(100,20);          // 创建水平线
+    ctx.arcTo(150,20,150,70,50); // 创建弧
+    ctx.lineTo(150,120);         // 创建垂直线
+    ctx.strokeStyle = "#f00";
+    if(ctx.isPointInPath(40,30)){
+        ctx.stroke();                // 进行绘制
+
+    }
+</script>
+</html>
